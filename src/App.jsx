@@ -44,38 +44,37 @@ function App() {
 
   return (
   <>
-  <div className='bg-blue-300 max-w-md mx-auto px-4 sm:px-6 py-4 sm:py-6 text-center rounded-[10px] m-4 sm:m-auto my-8'>
-  <h1 className='text-2xl sm:text-3xl font-bold'>Password Generator</h1>
+  <div className='flex items-center justify-center min-h-screen bg-gray-100 p-4'>
+    <div className='bg-blue-300 w-full max-w-lg px-6 sm:px-8 py-8 sm:py-10 text-center rounded-lg shadow-lg'>
+      <h1 className='text-3xl sm:text-4xl font-bold mb-6'>Password Generator</h1>
 
-  <input type="text" placeholder='password' value={password} readOnly = {true} ref={passwordInputRef} className='border border-black w-full p-2 rounded-[10px] mt-4 outline-none text-sm sm:text-base' />
+      <input type="text" placeholder='password' value={password} readOnly = {true} ref={passwordInputRef} className='border-2 border-black w-full p-3 rounded-lg mt-4 outline-none text-base sm:text-lg font-mono' />
 
-<div className='mt-4 flex flex-col sm:flex-row justify-center items-center gap-3 px-2'>
-<span className='text-sm sm:text-base'>Range : {passwordRange}</span>
-<input type="range" min={8} max={100} value={passwordRange} className='w-full sm:w-40 cursor-pointer' onChange={(e)=>(setPasswordRange(e.target.value))} />
-</div>
-<div className='flex flex-col gap-3 mt-4 px-2'>
+      <div className='mt-6 flex flex-col sm:flex-row justify-center items-center gap-4'>
+        <span className='text-base sm:text-lg font-semibold'>Range: {passwordRange}</span>
+        <input type="range" min={8} max={100} value={passwordRange} className='w-full sm:flex-1 cursor-pointer h-2' onChange={(e)=>(setPasswordRange(e.target.value))} />
+      </div>
 
-  <label htmlFor="n" className='cursor-pointer text-sm sm:text-base'>
-    <input type="checkbox" name="" id="n" checked = {isNumberAllowed} onChange={(e)=>(setIsNumberAllowed(e.target.checked))} />
-    Include Numbers
-  </label>
+      <div className='flex flex-col gap-4 mt-6 space-y-2'>
+        <label htmlFor="n" className='cursor-pointer text-base sm:text-lg flex items-center justify-center gap-2'>
+          <input type="checkbox" name="" id="n" checked = {isNumberAllowed} onChange={(e)=>(setIsNumberAllowed(e.target.checked))} className='w-5 h-5' />
+          Include Numbers
+        </label>
 
-  <label htmlFor="sc" className='cursor-pointer text-sm sm:text-base'>
-    <input type="checkbox" name="" id="sc" checked = {isSpecialCharacterAllowed} onChange={(e)=>(setIsSpecialCharacterAllowed(e.target.checked))} />
-    Include Special Characters
-  </label>
+        <label htmlFor="sc" className='cursor-pointer text-base sm:text-lg flex items-center justify-center gap-2'>
+          <input type="checkbox" name="" id="sc" checked = {isSpecialCharacterAllowed} onChange={(e)=>(setIsSpecialCharacterAllowed(e.target.checked))} className='w-5 h-5' />
+          Include Special Characters
+        </label>
+      </div>
 
-</div>
+      <div className='flex flex-col md:flex-row justify-center gap-4 mt-8'>
+        <button className='bg-black/20 px-6 py-3 rounded-lg cursor-pointer hover:bg-black/30 transition text-base sm:text-lg font-semibold flex-1 md:flex-none' onClick={generatePassword}>Generate Password</button>
 
-<div className='flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-4 px-2'>
+        <button className='bg-black/20 px-6 py-3 rounded-lg cursor-pointer hover:bg-black/30 transition text-base sm:text-lg font-semibold flex-1 md:flex-none' onClick={copyPassword}>Copy Password</button>
 
-<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={generatePassword}>Generate Password</button>
-
-<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={copyPassword} >Copy Password</button>
-
-<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={resetPasswordSettings}>Reset Settings</button>
-</div>
-
+        <button className='bg-black/20 px-6 py-3 rounded-lg cursor-pointer hover:bg-black/30 transition text-base sm:text-lg font-semibold flex-1 md:flex-none' onClick={resetPasswordSettings}>Reset Settings</button>
+      </div>
+    </div>
   </div>
   </>
   )
