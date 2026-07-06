@@ -44,36 +44,36 @@ function App() {
 
   return (
   <>
-  <div className='bg-blue-300 w-200 m-auto py-4 text-center rounded-[10px]'>
-  <h1 className='text-3xl font-bold'>Password Generator</h1>
+  <div className='bg-blue-300 max-w-md mx-auto px-4 sm:px-6 py-4 sm:py-6 text-center rounded-[10px] m-4 sm:m-auto my-8'>
+  <h1 className='text-2xl sm:text-3xl font-bold'>Password Generator</h1>
 
-  <input type="text" placeholder='password' value={password} readOnly = {true} ref={passwordInputRef} className='border border-black w-150 p-2 rounded-[10px] mt-4 outline-none' />
+  <input type="text" placeholder='password' value={password} readOnly = {true} ref={passwordInputRef} className='border border-black w-full p-2 rounded-[10px] mt-4 outline-none text-sm sm:text-base' />
 
-<div className='mt-4 flex justify-center items-center gap-3'>
-<span>Range : {passwordRange}</span>
-<input type="range" min={8} max={100} value={passwordRange} className='w-100 cursor-pointer' onChange={(e)=>(setPasswordRange(e.target.value))} />
+<div className='mt-4 flex flex-col sm:flex-row justify-center items-center gap-3 px-2'>
+<span className='text-sm sm:text-base'>Range : {passwordRange}</span>
+<input type="range" min={8} max={100} value={passwordRange} className='w-full sm:w-40 cursor-pointer' onChange={(e)=>(setPasswordRange(e.target.value))} />
 </div>
-<div className='flex flex-col gap-3 mt-4'>
+<div className='flex flex-col gap-3 mt-4 px-2'>
 
-  <label htmlFor="n" className='cursor-pointer'>
+  <label htmlFor="n" className='cursor-pointer text-sm sm:text-base'>
     <input type="checkbox" name="" id="n" checked = {isNumberAllowed} onChange={(e)=>(setIsNumberAllowed(e.target.checked))} />
     Include Numbers
   </label>
 
-  <label htmlFor="sc" className='cursor-pointer'>
+  <label htmlFor="sc" className='cursor-pointer text-sm sm:text-base'>
     <input type="checkbox" name="" id="sc" checked = {isSpecialCharacterAllowed} onChange={(e)=>(setIsSpecialCharacterAllowed(e.target.checked))} />
     Include Special Characters
   </label>
 
 </div>
 
-<div className='flex justify-center gap-8 mt-4'>
+<div className='flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-4 px-2'>
 
-<button className='bg-black/20 p-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25' onClick={generatePassword}>Generate Password</button>
+<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={generatePassword}>Generate Password</button>
 
-<button className='bg-black/20 p-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25' onClick={copyPassword} >Copy Password</button>
+<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={copyPassword} >Copy Password</button>
 
-<button className='bg-black/20 p-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25' onClick={resetPasswordSettings}>Reset Settings</button>
+<button className='bg-black/20 px-3 sm:px-4 py-2 rounded-[5px] cursor-pointer mt-2 hover:bg-black/25 text-sm sm:text-base' onClick={resetPasswordSettings}>Reset Settings</button>
 </div>
 
   </div>
